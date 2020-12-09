@@ -1,0 +1,7 @@
+<!-- header part -->
+<?php $this->load->view('front/include/header'); ?>
+<!-- headermenu part -->
+<?php $this->load->view('front/include/header_menu'); ?>
+
+<!-- footer part -->
+<?php $this->load->view('front/include/footer'); ?>

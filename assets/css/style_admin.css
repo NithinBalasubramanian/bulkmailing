@@ -1,0 +1,16 @@
+.ref{
+    cursor:pointer;
+    color:lightskyblue;
+}
+.e_unavailable{
+	display:none;
+}
+.e_available{
+	display:none;
+}
+.c_unavailable{
+	display:none;
+}
+.c_available{
+	display:none;
+}
