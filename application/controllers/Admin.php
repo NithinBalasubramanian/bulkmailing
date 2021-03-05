@@ -333,7 +333,7 @@ class Admin extends CI_Controller{
 	        }
 	    }
 	}
-    public function mail()
+    public function send_bulk_mail()
     	{
     	    $this->load->library('email');
 			//Load email library
@@ -441,7 +441,7 @@ class Admin extends CI_Controller{
 			if($result == 'true'){
 				echo 'Mail Sent Successfully';
 			}else{
-				echo 'Mail Sent UnSuccessfully';
+				echo $this->email->print_debugger();
 			}
 	}
 	public function delete_members()

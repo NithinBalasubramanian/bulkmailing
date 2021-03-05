@@ -48,7 +48,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Simple Newsletter</h4>
                                
-                                <form action="<?php echo base_url(); ?>Admin/mail" method="post" id="send_ajax" enctype="multipart/form-data">
+                                <form action="<?php echo base_url(); ?>Admin/send_bulk_mail" method="post" id="send_ajax" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="form-group col-md-10">
                                         <input type="text" id="essai" name="essai"  class="form-control">

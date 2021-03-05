@@ -253,7 +253,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item selected"> <a class="sidebar-link sidebar-link active" href="index.html"
+                        <li class="sidebar-item selected"> <a class="sidebar-link sidebar-link active" href="<?php echo base_url(); ?>/admin"
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="list-divider"></li>
@@ -357,7 +357,29 @@
                         
                         <li class="list-divider"></li>
 							<?php } ?>
-                        <?php $session=$this->session->userdata('user_data');
+                        <?php if( $session['user_type'] == 'sub_admin' ||  $session['user_type'] == 'administrator'){ ?>
+                        
+                        <li class="nav-small-cap"><span class="hide-menu"> Send Mail</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
+                                    class="hide-menu">Mailing </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/single_mail" class="sidebar-link"><span
+                                            class="hide-menu">Single Newsletter
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/mail" class="sidebar-link"><span
+                                            class="hide-menu">Simple Newsletter
+                                        </span></a>
+                                </li>
+                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/temp_mail" class="sidebar-link"><span
+                                            class="hide-menu">Template Newsletter
+                                        </span></a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <?php }
                             if($session['user_type'] == 'administrator'){ ?>
                         <li class="nav-small-cap"><span class="hide-menu">Application Setup</span></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
@@ -371,7 +393,7 @@
                             </ul>
                         </li>
                             <?php } ?>
-                            <?php $session=$this->session->userdata('user_data');
+                            <?php 
                             if($session['user_type'] == 'administrator'){ ?>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
@@ -381,7 +403,10 @@
                                             class="hide-menu"> Customer List
                                         </span></a>
                                 </li>
-                                
+                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/news" class="sidebar-link"><span
+                                            class="hide-menu">List Comments
+                                        </span></a>
+                                </li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
@@ -420,8 +445,7 @@
                                 </li>
                             </ul>
                         </li>
-                            <?php }
-                        if( $session['user_type'] == 'sub_admin'){ ?>
+                        <?php }if( $session['user_type'] == 'sub_admin' ){ ?>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                 aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
                                     class="hide-menu">Customer Management </span></a>
@@ -436,29 +460,6 @@
                                 </li>
                             </ul>
                            
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
-                                    class="hide-menu">Messaging </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/single_mail" class="sidebar-link"><span
-                                            class="hide-menu">Single Newsletter
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/mail" class="sidebar-link"><span
-                                            class="hide-menu">Simple Newsletter
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/temp_mail" class="sidebar-link"><span
-                                            class="hide-menu">Template Newsletter
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="<?php echo base_url(); ?>View_admin/message/news" class="sidebar-link"><span
-                                            class="hide-menu">List Comments
-                                        </span></a>
-                                </li>
-                                
-                            </ul>
                         </li>
                         <?php }if( $session['user_type'] == 'sub_admin' ||  $session['user_type'] == 'administrator'){ ?>
 						 <li class="nav-small-cap"><span class="hide-menu">Email Settings</span></li>
@@ -491,6 +492,3 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
